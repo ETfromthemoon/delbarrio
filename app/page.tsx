@@ -1,13 +1,14 @@
-const menuCategories = [
-  ["01", "Entradas", "Para abrir el apetito"],
-  ["02", "Fondos", "El plato se toma la mesa"],
-  ["03", "Ensaladas", "Frescas, sin vuelta"],
-  ["04", "Sandwichs", "Hechos para una buena conversa"],
-  ["05", "Pizzas", "32 cm de barrio"],
-  ["06", "Tablas", "Para compartir de verdad"],
-  ["07", "Desayunos", "El día parte aquí"],
-  ["08", "Cafetería", "Una pausa con oficio"],
-  ["09", "Tragos", "La noche también se sirve"]
+const menuHighlights = [
+  ["Entradas", "Ceviche Lucho Barrios", "Pez blanco de nuestro litoral, aderezado a lo peruano.", "$11.900"],
+  ["Entradas", "Ostiones a la parmesana", "El clásico gratinado que abre cualquier conversa.", "$15.900"],
+  ["Fondos", "Filete Alquinta", "Un fondo de la casa para venir con hambre.", "$20.700"],
+  ["Fondos", "Pastel de choclo", "Tradición chilena servida con orgullo porteño.", "$11.900"],
+  ["Ensaladas", "Ensalada César", "Fresca, contundente y sin vueltas.", "$9.800"],
+  ["Sandwichs", "Burger Del Barrio", "Una favorita de la casa, hecha para agarrar con las dos manos.", "$10.900"],
+  ["Pizzas", "Margarita", "32 cm para poner al centro de la mesa.", "$15.900"],
+  ["Pizzas", "Del Barrio", "Sabor de la casa, directo al horno.", "$15.900"],
+  ["Tablas", "Bravas", "Para empezar a compartir.", "$10.500"],
+  ["Tablas", "La Matriz", "La tabla grande: para 2 a 6 personas.", "$35.500"]
 ];
 
 const dishes = [
@@ -104,16 +105,23 @@ export default function Home() {
           <h2>Elige tu<br /><em>propia esquina.</em></h2>
           <p>Recetas que hablan como hablamos acá: directo, con historia y sin dejar a nadie con hambre.</p>
         </div>
-        <div className="menu-list">
-          {menuCategories.map(([number, title, subtitle]) => (
-            <a className="category-link" href="https://delbarriovalpo.cl/nuestracarta/" target="_blank" rel="noreferrer" key={number}>
-              <span className="category-number">{number}</span>
-              <span className="category-title">{title}<small>{subtitle}</small></span>
-              <Arrow />
-            </a>
-          ))}
+        <div className="menu-content">
+          <div className="menu-category-rail" aria-label="Categorías de la carta">
+            {['Entradas', 'Fondos', 'Ensaladas', 'Sandwichs', 'Pizzas', 'Tablas', 'Desayunos', 'Cafetería', 'Tragos'].map((category, index) => (
+              <span key={category}><b>{String(index + 1).padStart(2, '0')}</b>{category}</span>
+            ))}
+          </div>
+          <div className="menu-preview-grid">
+            {menuHighlights.map(([category, name, description, price]) => (
+              <article className="menu-preview-card" key={name}>
+                <p>{category}</p>
+                <div><h3>{name}</h3><strong>{price}</strong></div>
+                <span>{description}</span>
+              </article>
+            ))}
+          </div>
+          <p className="menu-note">También hay desayunos, cafetería y tragos. Pregunta por las opciones del día cuando llegues.</p>
         </div>
-        <a className="button button-outline" href="https://delbarriovalpo.cl/nuestracarta/" target="_blank" rel="noreferrer">Ver carta completa <Arrow /></a>
       </section>
 
       <section className="featured-section" aria-labelledby="favoritos-title">
@@ -134,18 +142,38 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="reservation-section" id="visitanos">
+      <section className="map-section" id="visitanos" aria-labelledby="mapa-title">
+        <div className="map-copy">
+          <p className="eyebrow"><span></span> COORDENADAS DEL BARRIO</p>
+          <p className="coordinates">33°02'51&quot;S<br />71°36'45&quot;O</p>
+          <h2 id="mapa-title">El punto de<br /><em>encuentro.</em></h2>
+          <p>Pedro Montt 2302, Valparaíso. En pleno Plan, donde se cruza la ciudad, el hambre y la conversa.</p>
+          <a className="button button-outline" href="https://www.google.com/maps/place/DEL+BARRIO/@-33.0476865,-71.6125689" target="_blank" rel="noreferrer">Abrir en Maps <Arrow /></a>
+        </div>
+        <div className="map-stage">
+          <div className="map-label"><span>ESTÁS AQUÍ</span><b>DEL<br />BARRIO</b></div>
+          <iframe
+            title="Ubicación de Del Barrio Valparaíso en Google Maps"
+            src="https://www.google.com/maps?q=Del%20Barrio%2C%20Pedro%20Montt%202302%2C%20Valpara%C3%ADso&output=embed"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <div className="map-pin" aria-hidden="true">⌖</div>
+        </div>
+      </section>
+
+      <section className="reservation-section">
         <div className="reservation-copy">
-          <p className="eyebrow light"><span></span> EN EL CORAZÓN DEL PLAN</p>
+          <p className="eyebrow light"><span></span> RESERVAS DIRECTAS</p>
           <h2>Una mesa, una<br /><em>buena historia.</em></h2>
-          <p>Estamos en Pedro Montt 2302. A pasos de la vida porteña y con la cocina prendida todos los días.</p>
+          <p>Una llamada, una reserva y la mesa queda lista. Ven con amigos, familia o el equipo completo.</p>
           <a className="button button-sand" href="https://delbarriovalpo.cl/about/" target="_blank" rel="noreferrer">Quiero reservar <Arrow /></a>
         </div>
         <div className="visit-card">
-          <div className="visit-icon" aria-hidden="true">⌖</div>
-          <p className="visit-label">DEL BARRIO · VALPARAÍSO</p>
-          <h3>Pedro Montt<br />2302, Valparaíso</h3>
-          <a className="visit-map" href="https://www.google.com/maps/place/DEL+BARRIO/@-33.0476865,-71.6125689" target="_blank" rel="noreferrer">Cómo llegar <Arrow /></a>
+          <div className="visit-icon" aria-hidden="true">☎</div>
+          <p className="visit-label">MESA DIRECTA</p>
+          <h3>+56 32<br />222 13345</h3>
+          <a className="visit-map" href="tel:+563222213345">Llamar ahora <Arrow /></a>
           <div className="visit-hours">
             <p><span>Lun — Jue</span> 10:00 — 23:59</p>
             <p><span>Vie — Sáb</span> 10:00 — 01:59</p>
