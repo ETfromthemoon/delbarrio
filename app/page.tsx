@@ -78,10 +78,12 @@ export default function Home() {
         </div>
         <div className="hero-visual">
           <div className="hero-frame">
-            <img src="https://delbarriovalpo.cl/wp-content/uploads/2023/04/Chorrillana.jpg" alt="Plato servido en Del Barrio Valparaíso" />
+            <video autoPlay muted loop playsInline preload="metadata" aria-hidden="true">
+              <source src="https://cdn.coverr.co/videos/coverr-onion-on-a-hamburger-5878/1080p.mp4" type="video/mp4" />
+            </video>
           </div>
           <div className="hero-stamp"><span>DESDE</span><strong>1997</strong><span>EN EL PLAN</span></div>
-          <p className="photo-caption">La mesa está servida <span>01</span></p>
+          <p className="photo-caption">Hamburguesa en preparación <span>01</span></p>
         </div>
         <aside className="hours-card" aria-label="Horarios">
           <span className="pulse"></span>
