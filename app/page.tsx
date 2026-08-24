@@ -20,7 +20,7 @@ export default function Home() {
           <p className="hero-text">Cocina chilena, guiños peruanos y una mesa siempre dispuesta para la conversa.</p>
           <div className="hero-actions">
             <a className="button button-primary" href={reservationUrl} target="_blank" rel="noreferrer">Reserva ahora <Arrow /></a>
-            <Link className="text-link" href="/carta">Mira la carta <span>↓</span></Link>
+            <Link className="text-link" href="/pedir">Pide online <span>↓</span></Link>
           </div>
         </div>
         <div className="hero-visual">

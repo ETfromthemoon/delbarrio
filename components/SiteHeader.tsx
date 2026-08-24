@@ -3,6 +3,7 @@ import { phoneDisplay, phoneHref, reservationUrl } from "@/lib/site";
 
 const navItems = [
   { href: "/", label: "Inicio" },
+  { href: "/pedir", label: "Pedir" },
   { href: "/carta", label: "Carta" },
   { href: "/nosotros", label: "Nosotros" },
   { href: "/experiencias", label: "Experiencias" },

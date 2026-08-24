@@ -2,4 +2,7 @@ node_modules
 node_modules.incomplete
 .next
 .vercel
+.env.local
 *.log
+
+.env*
