@@ -6,3 +6,4 @@ node_modules.incomplete
 *.log
 
 .env*
+!.env.example
